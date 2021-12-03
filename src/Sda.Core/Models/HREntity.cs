@@ -24,5 +24,6 @@ namespace Sda.Core.Models
         public int CurTime { get; set; }
 
 
+
     }
 }
