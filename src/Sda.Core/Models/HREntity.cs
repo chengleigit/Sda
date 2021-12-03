@@ -23,5 +23,7 @@ namespace Sda.Core.Models
         /// </summary>
         public int CurTime { get; set; }
 
+
+
     }
 }
