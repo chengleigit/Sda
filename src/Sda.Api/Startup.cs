@@ -5,7 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Sda.Application.HREntitys;
+using Sda.Core.Repositories;
 using Sda.EntityFrameworkCore;
+using Sda.EntityFrameworkCore.Repositories;
 using Sda.EntityFrameworkCore.Seed;
 using System;
 using System.IO;
@@ -28,6 +31,7 @@ namespace Sda.Api
 
             services.AddDbContextPool<AppDbContext>(options=>options.UseNpgsql(Configuration.GetConnectionString("SdaDBConnection")));
 
+            #region Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sda.Api", Version = "v1" });
@@ -36,6 +40,16 @@ namespace Sda.Api
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
+            #endregion
+
+            #region “¿¿µ◊¢»Î
+
+            services.AddTransient(typeof(IRepository<,>), typeof(RepositoryBase<,>));
+            services.AddScoped<IHREntityService, HREntityService>();
+
+            #endregion
+
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
