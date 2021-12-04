@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="protobuf-net" Version="3.0.101" />
+    <PackageReference Include="Volo.Abp.Core" Version="4.4.4" />
+    <PackageReference Include="Volo.Abp.Ddd.Domain" Version="4.4.4" />
   </ItemGroup>
 
   <ItemGroup>

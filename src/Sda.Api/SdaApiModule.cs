@@ -15,14 +15,8 @@ namespace Sda.Api
     [DependsOn(
      typeof(AbpAspNetCoreMvcModule)
        )]
-    public class SdaApiModule: AbpModule
+    public class SdaApiModule : AbpModule
     {
-        //private IWebHostEnvironment _env;
-        //public SdaApiModule(IWebHostEnvironment env)
-        //{
-        //    _env = env;
-        //}
-
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             context.Services.AddControllers();
@@ -34,11 +28,7 @@ namespace Sda.Api
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
-
             });
-
-
-
         }
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
@@ -62,6 +52,5 @@ namespace Sda.Api
                 endpoints.MapControllers();
             });
         }
-
     }
 }
