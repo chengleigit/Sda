@@ -23,6 +23,10 @@ namespace Sda.Api.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// 测试注解
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
