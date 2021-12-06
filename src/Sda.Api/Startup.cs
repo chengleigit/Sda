@@ -1,17 +1,22 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Sda.Api.Controllers;
+using Sda.Application.Dtos;
 using Sda.Application.HREntitys;
 using Sda.Core.Repositories;
 using Sda.EntityFrameworkCore;
 using Sda.EntityFrameworkCore.Repositories;
 using Sda.EntityFrameworkCore.Seed;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 
 namespace Sda.Api
@@ -29,7 +34,7 @@ namespace Sda.Api
         {
             services.AddControllers();
 
-            services.AddDbContextPool<AppDbContext>(options=>options.UseNpgsql(Configuration.GetConnectionString("SdaDBConnection")));
+            services.AddDbContextPool<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("SdaDBConnection")));
 
             #region Swagger
             services.AddSwaggerGen(c =>
@@ -43,14 +48,14 @@ namespace Sda.Api
             #endregion
 
             #region “¿¿µ◊¢»Î
-
             services.AddTransient(typeof(IRepository<,>), typeof(RepositoryBase<,>));
             services.AddScoped<IHREntityService, HREntityService>();
 
+
             #endregion
-
-
         }
+
+
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

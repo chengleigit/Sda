@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Sda.Api.Controllers
 {
+    /// <summary>
+    /// 实体
+    /// </summary>
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class HREntityController : ControllerBase
     {
         private readonly IHREntityService _hREntityService;

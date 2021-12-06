@@ -1,5 +1,7 @@
-﻿using Sda.Core.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Sda.Core.Models;
 using Sda.Core.Repositories;
+using Sda.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
