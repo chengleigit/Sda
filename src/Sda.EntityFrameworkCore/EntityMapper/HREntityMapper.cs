@@ -13,7 +13,7 @@ namespace Sda.EntityFrameworkCore.EntityMapper
     {
         public void Configure(EntityTypeBuilder<HREntity> builder)
         {
-            builder.ToTable("HREntitys");
+            builder.ToTable("HREntitys", "SDA");
 
             builder.HasKey(x => x.Id);
         }
