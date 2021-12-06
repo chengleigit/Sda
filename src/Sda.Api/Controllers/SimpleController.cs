@@ -31,5 +31,11 @@ namespace Sda.Api.Controllers
             return Task.FromResult("OK");
         }
 
+        [HttpGet]
+        public Task<string> GetHangfire() 
+        {
+            return Task.FromResult("OK");
+        }
+
     }
 }

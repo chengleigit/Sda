@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Sda.Api.Controllers;
+using Sda.Application;
 using Sda.Application.Dtos;
 using Sda.Application.HREntitys;
 using Sda.Core.Repositories;
@@ -18,6 +19,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+
 
 namespace Sda.Api
 {
@@ -51,8 +53,10 @@ namespace Sda.Api
             services.AddTransient(typeof(IRepository<,>), typeof(RepositoryBase<,>));
             services.AddScoped<IHREntityService, HREntityService>();
 
-
+            services.AddSingleton<IHostedService, BackManagerService>();
             #endregion
+
+
         }
 
 
