@@ -5,11 +5,15 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sda.Api", "src\Sda.Api\Sda.Api.csproj", "{2D6C896E-56A7-40AB-95E6-FB4051D5621F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sda.Application", "src\Sda.Application\Sda.Application.csproj", "{BDBD8213-7ED5-43D6-9DC1-0FCD2376385A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sda.Application", "src\Sda.Application\Sda.Application.csproj", "{BDBD8213-7ED5-43D6-9DC1-0FCD2376385A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sda.Core", "src\Sda.Core\Sda.Core.csproj", "{39AC823C-46F7-4C4D-B285-1A9386F7171A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sda.Core", "src\Sda.Core\Sda.Core.csproj", "{39AC823C-46F7-4C4D-B285-1A9386F7171A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sda.EntityFrameworkCore", "src\Sda.EntityFrameworkCore\Sda.EntityFrameworkCore.csproj", "{D9A2F009-6F30-4A44-B871-D6D5828156D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sda.EntityFrameworkCore", "src\Sda.EntityFrameworkCore\Sda.EntityFrameworkCore.csproj", "{D9A2F009-6F30-4A44-B871-D6D5828156D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{9FC28040-C2B0-4F7F-8EA9-20AED0D3EFD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SdaTest", "test\SdaTest\SdaTest.csproj", "{0B60FB3B-8FB2-4132-9E34-A67C1D53274F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +37,16 @@ Global
 		{D9A2F009-6F30-4A44-B871-D6D5828156D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9A2F009-6F30-4A44-B871-D6D5828156D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9A2F009-6F30-4A44-B871-D6D5828156D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B60FB3B-8FB2-4132-9E34-A67C1D53274F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B60FB3B-8FB2-4132-9E34-A67C1D53274F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B60FB3B-8FB2-4132-9E34-A67C1D53274F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B60FB3B-8FB2-4132-9E34-A67C1D53274F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0B60FB3B-8FB2-4132-9E34-A67C1D53274F} = {9FC28040-C2B0-4F7F-8EA9-20AED0D3EFD5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {31CB8D85-E11F-47B6-8875-6854E47E11D2}

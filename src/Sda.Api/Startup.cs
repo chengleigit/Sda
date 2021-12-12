@@ -6,7 +6,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Quartz;
+using Quartz.Impl;
+using Quartz.Spi;
 using Sda.Api.Controllers;
+using Sda.Api.Quartz;
 using Sda.Application;
 using Sda.Application.Dtos;
 using Sda.Application.HREntitys;
@@ -53,7 +57,18 @@ namespace Sda.Api
             services.AddTransient(typeof(IRepository<,>), typeof(RepositoryBase<,>));
             services.AddScoped<IHREntityService, HREntityService>();
 
-            services.AddSingleton<IHostedService, BackManagerService>();
+            //services.AddSingleton<IHostedService, BackManagerService>();
+
+            //添加Quartz服务
+            services.AddSingleton<IJobFactory, SingletonJobFactory>();
+            //添加我们的Job
+            services.AddSingleton<HelloWorldJob>();
+            services.AddSingleton(
+                 new JobSchedule(jobType: typeof(HelloWorldJob), cronExpression: "0/5 * * * * ?")
+           );
+
+
+            services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();//注册ISchedulerFactory的实例。
             #endregion
 
 
