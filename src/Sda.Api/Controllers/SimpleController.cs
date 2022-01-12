@@ -77,6 +77,7 @@ namespace Sda.Api.Controllers
 
             return Task.Run(() =>
             {
+
                 System.Console.WriteLine($"{ DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss")}==={triggerData.GetInt("key1")}");
                 //using (StreamWriter sw = new StreamWriter(@"nlog-all-2021-12-06.log", true, Encoding.UTF8))
                 //{
