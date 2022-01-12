@@ -1,11 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using NLog.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Sda.Api
 {
@@ -18,6 +15,16 @@ namespace Sda.Api
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+            .ConfigureLogging((hostingContext, logging) =>
+                    {
+                        logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+                        logging.AddConsole();
+                        logging.AddDebug();
+                        logging.AddEventSourceLogger();
+
+                        //启用NLog作为日志提供程序之一
+                        logging.AddNLog();
+                    })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
